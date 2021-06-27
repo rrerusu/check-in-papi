@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+
+
+
+	<flow
+		name="get-ticket-by-pnr"
+		doc:id="adf60443-ed83-42dd-be49-d981b315969d">
+		<ee:transform>
+			<ee:message>
+				<ee:set-payload resource="dw/sample-boarding-pass.dwl" />
+			</ee:message>
+		</ee:transform>
+	</flow>
+
+
+
+	<flow
+		name="payment-approval-by-pnr"
+		doc:id="9fbdbf96-f85c-437e-9dad-504f4335eabf">
+		<ee:transform>
+			<ee:message>
+				<ee:set-payload resource="dw/sample-boarding-pass.dwl" />
+			</ee:message>
+		</ee:transform>
+	</flow>
+
+
+
+	<flow
+		name="check-in-by-pnr"
+		doc:id="f0597f54-6b8c-4782-9bcb-86ebea624644">
+		<ee:transform>
+			<ee:message>
+				<ee:set-payload resource="dw/sample-payment_ID.dwl" />
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
