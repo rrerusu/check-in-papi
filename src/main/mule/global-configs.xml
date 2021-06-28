@@ -17,8 +17,8 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 
 	<http:listener-config name="apiHttpsListenerConnector">
 		<http:listener-connection
-			host="0.0.0.0"
-			port="8082"
+			host="${https.host}"
+			port="${https.port}"
 			protocol="HTTPS"
 			tlsContext="apiTLSContext" />
 	</http:listener-config>
@@ -30,29 +30,37 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 		doc:name="TLS Context"
 		doc:id="955d54c2-b7b2-49fa-b46d-a214a2a230e7">
 		<tls:key-store
-			type="pkcs12"
-			path="certs/check-in-papi-dev.p12"
-			alias="server"
-			keyPassword="mule12345"
-			password="mule12345" />
+			type="${tls.keystore.type}"
+			path="${tls.keystore.path}"
+			alias="${tls.keystore.alias}"
+			keyPassword="${tls.keystore.keyPassword}"
+			password="${tls.keystore.password}" />
 	</tls:context>
 
 
 
 	<apikit:config
 		name="apiKitConnector"
-		api="resource::a50c6385-1871-4449-ae6c-ec2840e6003d:check-in-papi:1.0.0:raml:zip:api.raml"
+		api="${api.spec}"
 		outboundHeadersMapName="outboundHeaders"
 		httpStatusVarName="httpStatus" />
 
 
 
 	<api-gateway:autodiscovery
-		apiId="17008822"
+		apiId="${api.id}"
 		ignoreBasePath="true"
 		doc:name="apiAutodiscovery"
 		doc:id="32a00b70-d92c-416d-9de7-3655374534a9"
 		flowRef="api-main" />
+
+
+
+	<configuration-properties
+		doc:name="Configuration properties"
+		doc:id="a9323748-1511-4b3d-8df3-97a1fe215dd3"
+		file="properties.yaml" />
+
 
 
 

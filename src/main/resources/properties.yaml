@@ -1,0 +1,25 @@
+# HTTPS connector properties
+https:
+  host: "0.0.0.0"
+  port: "7082"
+
+
+# SSL/TLS properties
+tls.keystore:
+  type: "pkcs12"
+  path: "certs/check-in-papi-dev.p12"
+  alias: "server"
+  password: "mule12345"
+  keyPassword: "mule12345"
+
+
+
+# Check In PAPI connector properties
+# resource::a50c6385-1871-4449-ae6c-ec2840e6003d:check-in-papi:1.0.0:raml:zip:api.raml
+api:
+  groupId: "a50c6385-1871-4449-ae6c-ec2840e6003d"
+  artifactId: "check-in-papi"
+  version: "1.0.0"
+  spec: "resource::${api.groupId}:${api.artifactId}:${api.version}:raml:zip:api.raml"
+  majorVersion: "v1"
+  id: "17008822"
