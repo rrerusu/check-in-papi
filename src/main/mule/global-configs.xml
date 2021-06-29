@@ -57,15 +57,22 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 
 
 	<configuration-properties
-		doc:name="Configuration properties"
+		doc:name="envSpecificConfigurationProperties"
+		doc:id="a508a681-52b4-4fd0-b839-13ea4dc98cbb"
+		file="properties-${env}.yaml" />
+
+
+
+	<configuration-properties
+		doc:name="envNeutralConfigurationProperties"
 		doc:id="a9323748-1511-4b3d-8df3-97a1fe215dd3"
 		file="properties.yaml" />
 
 
 
-
-
-
-
-
+	<global-property
+		doc:name="Global Property"
+		doc:id="91c386e0-8276-4c3c-914d-982f84f6287a"
+		name="env"
+		value="dev" />
 </mule>

@@ -1,16 +1,14 @@
+# Environment-independent properties
+
+# Application-specific properties
+curr.app:
+  name: "${project.artifactId}"
+  version: "${project.version}"
+
 # HTTPS connector properties
 https:
   host: "0.0.0.0"
   port: "7082"
-
-
-# SSL/TLS properties
-tls.keystore:
-  type: "pkcs12"
-  path: "certs/check-in-papi-dev.p12"
-  alias: "server"
-  password: "mule12345"
-  keyPassword: "mule12345"
 
 
 
@@ -22,4 +20,3 @@ api:
   version: "${api.version}"
   spec: "resource::${api.groupId}:${api.artifactId}:${api.version}:raml:zip:api.raml"
   majorVersion: "v1"
-  id: "17008822"
